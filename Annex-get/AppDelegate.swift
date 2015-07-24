@@ -30,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
     @IBOutlet weak var dropButton: NSToolbarItem!
     @IBOutlet weak var dropAllButton: NSToolbarItem!
 
+    let repo = Repository()
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         annexBrowser.delegate = self
@@ -41,11 +42,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
 
     func browser(sender: NSBrowser, willDisplayCell cell: AnyObject, atRow row: Int, column: Int) {
         let browserCell = cell as! NSBrowserCell
-        browserCell.stringValue = "AAA"
+        browserCell.stringValue = self.repo.listFiles(self.repo.repoRoot)[row].lastPathComponent!
     }
     
     func browser(sender: NSBrowser, numberOfRowsInColumn column: Int) -> Int {
-        let numRows=column + 1
+        let numRows = self.repo.listFiles(self.repo.repoRoot).count
         return numRows
     }
 
