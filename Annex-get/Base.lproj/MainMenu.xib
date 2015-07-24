@@ -14,6 +14,9 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Annex_get" customModuleProvider="target">
             <connections>
                 <outlet property="annexBrowser" destination="xE7-4l-H4l" id="yAQ-ar-BaB"/>
+                <outlet property="dropAllButton" destination="luZ-Rp-aWQ" id="KnP-AS-7Gu"/>
+                <outlet property="dropButton" destination="Go1-2x-Po1" id="Wg9-fK-cZG"/>
+                <outlet property="getButton" destination="ijt-qd-r1b" id="uPk-AI-cLI"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -670,17 +673,49 @@
         <window title="Annex-get" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="contentRect" x="335" y="390" width="480" height="274"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="274"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <browser verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" enabled="YES" hasHorizontalScroller="YES" allowsEmptySelection="YES" defaultColumnWidth="100" minColumnWidth="100" titled="YES" separatesColumns="YES" allowsTypeSelect="YES" columnResizingType="auto" translatesAutoresizingMaskIntoConstraints="NO" id="xE7-4l-H4l">
-                        <rect key="frame" x="120" y="123" width="240" height="135"/>
+                    <browser verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" enabled="YES" hasHorizontalScroller="YES" allowsEmptySelection="YES" defaultColumnWidth="100" minColumnWidth="100" separatesColumns="YES" allowsTypeSelect="YES" columnResizingType="auto" translatesAutoresizingMaskIntoConstraints="NO" id="xE7-4l-H4l">
+                        <rect key="frame" x="20" y="20" width="440" height="232"/>
                     </browser>
                 </subviews>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="1D1DE0E6-1071-4AD4-BB8C-06D0DF9C69B1" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="Qno-LG-HH8">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Nj3-zK-E6K"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="BC1-6X-JsQ"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="zZT-qd-vya"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="aVh-qL-7ZI"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="1xf-fh-YaL"/>
+                    <toolbarItem implicitItemIdentifier="64DC3A82-DA3E-465E-AE91-B3593DD29F66" label="Get" paletteLabel="Get" tag="-1" id="ijt-qd-r1b">
+                        <connections>
+                            <action selector="getAction:" target="Voe-Tx-rLC" id="Csa-wf-2ZZ"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="0E29F497-05BB-4FE4-AA57-54B2F1211D30" label="Drop" paletteLabel="Drop" tag="-1" id="Go1-2x-Po1">
+                        <connections>
+                            <action selector="dropAction:" target="Voe-Tx-rLC" id="gZw-Tz-oDQ"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="E1FE9F49-3784-43D5-9CD9-7022FBB45537" label="Drop All" paletteLabel="Drop All" tag="-1" id="luZ-Rp-aWQ">
+                        <connections>
+                            <action selector="dropAllAction:" target="Voe-Tx-rLC" id="sce-zf-Ybh"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="ijt-qd-r1b"/>
+                    <toolbarItem reference="Go1-2x-Po1"/>
+                    <toolbarItem reference="aVh-qL-7ZI"/>
+                    <toolbarItem reference="luZ-Rp-aWQ"/>
+                    <toolbarItem reference="1xf-fh-YaL"/>
+                </defaultToolbarItems>
+            </toolbar>
+            <point key="canvasLocation" x="543" y="452"/>
         </window>
     </objects>
 </document>

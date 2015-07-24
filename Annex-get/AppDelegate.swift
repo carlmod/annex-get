@@ -26,6 +26,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var annexBrowser: NSBrowser!
 
+    @IBOutlet weak var getButton: NSToolbarItem!
+    @IBOutlet weak var dropButton: NSToolbarItem!
+    @IBOutlet weak var dropAllButton: NSToolbarItem!
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
@@ -46,5 +49,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
         return numRows
     }
 
+    @IBAction func getAction(sender: AnyObject) {
+    }
+
+    @IBAction func dropAction(sender: AnyObject) {
+    }
+    
+    @IBAction func dropAllAction(sender: AnyObject) {
+    }
 }
 
