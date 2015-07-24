@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF150BFD1B625E90005EFEB4 /* LICENCE in Resources */ = {isa = PBXBuildFile; fileRef = DF150BFC1B625E90005EFEB4 /* LICENCE */; };
 		DFB8F11B1B5EE02C003C6E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB8F11A1B5EE02C003C6E2B /* AppDelegate.swift */; };
 		DFB8F11D1B5EE02C003C6E2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB8F11C1B5EE02C003C6E2B /* Assets.xcassets */; };
 		DFB8F1201B5EE02C003C6E2B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB8F11E1B5EE02C003C6E2B /* MainMenu.xib */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF150BFB1B622647005EFEB4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DF150BFC1B625E90005EFEB4 /* LICENCE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE; sourceTree = "<group>"; };
 		DFB8F1171B5EE02C003C6E2B /* Annex-get.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annex-get.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB8F11A1B5EE02C003C6E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB8F11C1B5EE02C003C6E2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 		DFB8F10E1B5EE02C003C6E2B = {
 			isa = PBXGroup;
 			children = (
+				DF150BFC1B625E90005EFEB4 /* LICENCE */,
+				DF150BFB1B622647005EFEB4 /* README.md */,
 				DFB8F1191B5EE02C003C6E2B /* Annex-get */,
 				DFB8F1291B5EE02C003C6E2B /* Annex-getTests */,
 				DFB8F1341B5EE02C003C6E2B /* Annex-getUITests */,
@@ -222,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF150BFD1B625E90005EFEB4 /* LICENCE in Resources */,
 				DFB8F11D1B5EE02C003C6E2B /* Assets.xcassets in Resources */,
 				DFB8F1201B5EE02C003C6E2B /* MainMenu.xib in Resources */,
 			);
@@ -470,6 +476,7 @@
 				DFB8F13C1B5EE02C003C6E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFB8F13D1B5EE02C003C6E2B /* Build configuration list for PBXNativeTarget "Annex-getTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +485,7 @@
 				DFB8F13F1B5EE02C003C6E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFB8F1401B5EE02C003C6E2B /* Build configuration list for PBXNativeTarget "Annex-getUITests" */ = {
 			isa = XCConfigurationList;
@@ -486,6 +494,7 @@
 				DFB8F1421B5EE02C003C6E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
