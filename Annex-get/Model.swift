@@ -28,8 +28,7 @@ class Repository {
         // TODO: Make a resonable setup for this.
         let homeFolder = self.fileManager.URLsForDirectory(.MoviesDirectory, inDomains: .UserDomainMask)[0]
         self.repoRoot = homeFolder.URLByAppendingPathComponent("Movies/")
-        print(self.repoRoot.debugDescription)
-}
+    }
     
     func listFiles(path: NSURL) -> [NSURL] {
         var filelist = [NSURL]()
