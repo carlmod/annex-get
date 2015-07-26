@@ -43,8 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
     func browser(sender: NSBrowser, willDisplayCell cell: AnyObject, atRow row: Int, column: Int) {
         let browserCell = cell as! NSBrowserCell
         let browserPath = sender.pathToColumn(column)
-        let fullPath = self.repo.repoRoot.URLByAppendingPathComponent(browserPath)
-        browserCell.stringValue = self.repo.listFiles(fullPath)[row].lastPathComponent!
+        let parentPath = self.repo.repoRoot.URLByAppendingPathComponent(browserPath)
+        let fullPath = self.repo.listFiles(parentPath)[row]
+        browserCell.stringValue = fullPath.lastPathComponent!
+        browserCell.leaf = !self.repo.urlIsDirectory(fullPath)
     }
     
     func browser(sender: NSBrowser, numberOfRowsInColumn column: Int) -> Int {

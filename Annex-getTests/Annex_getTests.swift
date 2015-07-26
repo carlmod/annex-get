@@ -103,4 +103,17 @@ class ModelTests: XCTestCase {
         let invalidURL = NSURL(string: "invalid_file", relativeToURL: self.tempRepo)
         XCTAssertFalse(self.repo.urlIsDirectory(invalidURL))
     }
+    
+    func testIsDirectory_brokenSymlink() {
+        let symbolicLink = NSURL(string: "symlink", relativeToURL: self.tempRepo)
+        try! fileManager.createSymbolicLinkAtURL(symbolicLink!, withDestinationURL: NSURL(string: "/blahonga", relativeToURL: self.tempRepo)!)
+        XCTAssertFalse(self.repo.urlIsDirectory(symbolicLink))
+    }
+    
+    func testIsDirectory_symlink() {
+        let destination = NSURL(string: "sample_file", relativeToURL: self.tempRepo)
+        let symbolicLink = NSURL(string: "symlink", relativeToURL: self.tempRepo)
+        try! fileManager.createSymbolicLinkAtURL(symbolicLink!, withDestinationURL: destination!)
+        XCTAssertFalse(self.repo.urlIsDirectory(symbolicLink))
+    }
 }
