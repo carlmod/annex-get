@@ -32,11 +32,12 @@ class Repository {
     
     func listFiles(path: NSURL) -> [NSURL] {
         var filelist = [NSURL]()
+        let options: NSDirectoryEnumerationOptions = .SkipsHiddenFiles
         do {
             filelist = try self.fileManager.contentsOfDirectoryAtURL(path,
                 includingPropertiesForKeys: ["NSURLIsDirectoryKey",
                                              "NSURLIsSymbolicLinkKey"],
-            options: NSDirectoryEnumerationOptions())
+            options: options)
         } catch {
             
         }
