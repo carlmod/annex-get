@@ -58,7 +58,6 @@ class ModelTests: XCTestCase {
         let unique = tempFolder + NSProcessInfo().globallyUniqueString
         self.tempRepo = NSURL(fileURLWithPath: unique, isDirectory: true)
         try! fileManager.createDirectoryAtURL(self.tempRepo!, withIntermediateDirectories: true, attributes: nil)
-        print(self.tempRepo)
         
     }
 
@@ -86,9 +85,22 @@ class ModelTests: XCTestCase {
     
     func testListFiles_WithFiles() {
         let filePath = NSURL(string: "dir/", relativeToURL: self.tempRepo)
-        print(filePath)
         try! fileManager.createDirectoryAtURL(filePath!, withIntermediateDirectories: true, attributes: nil)
         XCTAssertEqual((self.repo.listFiles(self.tempRepo!)).count, 1)
     }
+    
+    func testIsDirectory_isDirectory() {
+        XCTAssertTrue(self.repo.urlIsDirectory(self.tempRepo))
+    }
 
+    func testIsDirectory_isFile() {
+        let fileURL = NSURL(string: "sample_file", relativeToURL: self.tempRepo)
+        fileManager.createFileAtPath((fileURL?.path!)!, contents: nil, attributes: nil)
+        XCTAssertFalse(self.repo.urlIsDirectory(fileURL))
+    }
+    
+    func testIsDirectory_doesNotExist() {
+        let invalidURL = NSURL(string: "invalid_file", relativeToURL: self.tempRepo)
+        XCTAssertFalse(self.repo.urlIsDirectory(invalidURL))
+    }
 }

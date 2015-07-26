@@ -43,5 +43,25 @@ class Repository {
         }
         return filelist
     }
+
+    /**
+        Return true if url is a directory.
+    
+        :param: path A NSURL instance to check.
+    
+        :returns: A boolean that is true if path exist and is a directory.
+    */
+    func urlIsDirectory(path: NSURL?) -> Bool {
+        guard let path = path else {
+            return false
+        }
+        var isDirectory: ObjCBool = false
+        let exist = self.fileManager.fileExistsAtPath(path.path!, isDirectory: &isDirectory)
+        if exist && isDirectory {
+            return true
+        } else {
+            return false
+        }
+    }
     
 }

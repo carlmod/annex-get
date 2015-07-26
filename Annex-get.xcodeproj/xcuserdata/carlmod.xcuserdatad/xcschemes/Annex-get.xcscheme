@@ -38,16 +38,6 @@
                ReferencedContainer = "container:Annex-get.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DFB8F1301B5EE02C003C6E2B"
-               BuildableName = "Annex-getUITests.xctest"
-               BlueprintName = "Annex-getUITests"
-               ReferencedContainer = "container:Annex-get.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
