@@ -116,4 +116,33 @@ class ModelTests: XCTestCase {
         try! fileManager.createSymbolicLinkAtURL(symbolicLink!, withDestinationURL: destination!)
         XCTAssertFalse(self.repo.urlIsDirectory(symbolicLink))
     }
+    
+    func testIsSymlink_isFile() {
+        let fileURL = NSURL(string: "sample_file", relativeToURL: self.tempRepo)
+        fileManager.createFileAtPath((fileURL?.path!)!, contents: nil, attributes: nil)
+        XCTAssertFalse(self.repo.urlIsSymlink(fileURL))
+    }
+    
+    func testIsSymlink_brokenSymlink() {
+        let symlink = NSURL(string: "symlink", relativeToURL: self.tempRepo)
+        do {
+        try fileManager.createSymbolicLinkAtURL(symlink!, withDestinationURL: NSURL(string: "/blahonga", relativeToURL: self.tempRepo!)!)
+        } catch let error as NSError {
+                XCTFail("Cannot create symlink \(error)")
+        }
+        XCTAssertTrue(self.repo.urlIsSymlink(symlink))
+    }
+    
+    func testIsSymlink_symlink() {
+        let destination = NSURL(string: "sample_file", relativeToURL: self.tempRepo)
+        let symbolicLink = NSURL(string: "symlink", relativeToURL: self.tempRepo)
+        try! fileManager.createSymbolicLinkAtPath((symbolicLink?.path!)!, withDestinationPath: (destination?.path!)!)
+        fileManager.createFileAtPath((destination?.path!)!, contents: nil, attributes: nil)
+        XCTAssertTrue(self.repo.urlIsSymlink(symbolicLink))
+    }
+    
+    func testIsSymlink_doesNotExist() {
+        let nonexist = NSURL(string: "blahonga", relativeToURL: self.tempRepo)
+        XCTAssertFalse(self.repo.urlIsSymlink(nonexist))
+    }
 }

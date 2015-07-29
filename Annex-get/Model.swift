@@ -64,4 +64,29 @@ class Repository {
         }
     }
     
+    /**
+        Return true if url is a symbolic link.
+
+        :param: path A NSURL instance to check.
+
+        :returns: A boolean that is true if path is a symlink
+    */
+    func urlIsSymlink(url: NSURL?) -> Bool {
+        guard let unwrappedURL = url else {
+            return false
+        }
+        guard let path = unwrappedURL.path else {
+            return false
+        }
+        do {
+            let attributes = try self.fileManager.attributesOfItemAtPath(path)
+            if attributes["NSFileType"] as! String == NSFileTypeSymbolicLink {
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            return false
+        }
+    }
 }
