@@ -45,6 +45,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
         let browserPath = sender.pathToColumn(column)
         let parentPath = self.repo.repoRoot.URLByAppendingPathComponent(browserPath)
         let fullPath = self.repo.listFiles(parentPath)[row]
+        if self.repo.urlIsSymlink(fullPath) {
+            browserCell.image = NSImage(named: "greencircle")
+        }
         browserCell.stringValue = fullPath.lastPathComponent!
         browserCell.leaf = !self.repo.urlIsDirectory(fullPath)
     }

@@ -14,3 +14,10 @@ possible using the assistant.
 
 The manual getting and dropping of files are of course trivially possible using
 the normal CLI, and annex-git aims to bring that ease to a GUI. 
+
+* Image sources
+
+greencircle:
+  This work has been released into the public domain by its author, Down10 at the wikipedia project. This applies worldwide.
+  In case this is not legally possible:
+  Down10 grants anyone the right to use this work for any purpose, without any conditions, unless such conditions are required by law.

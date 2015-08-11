@@ -10,10 +10,10 @@
 		DF150BFD1B625E90005EFEB4 /* LICENCE in Resources */ = {isa = PBXBuildFile; fileRef = DF150BFC1B625E90005EFEB4 /* LICENCE */; };
 		DF8199DF1B62BFE9002A7885 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8199DE1B62BFE9002A7885 /* Model.swift */; };
 		DFB8F11B1B5EE02C003C6E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB8F11A1B5EE02C003C6E2B /* AppDelegate.swift */; };
-		DFB8F11D1B5EE02C003C6E2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB8F11C1B5EE02C003C6E2B /* Assets.xcassets */; };
 		DFB8F1201B5EE02C003C6E2B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB8F11E1B5EE02C003C6E2B /* MainMenu.xib */; };
 		DFB8F12B1B5EE02C003C6E2B /* Annex_getTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB8F12A1B5EE02C003C6E2B /* Annex_getTests.swift */; };
 		DFB8F1361B5EE02C003C6E2B /* Annex_getUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB8F1351B5EE02C003C6E2B /* Annex_getUITests.swift */; };
+		DFC7296E1B697C29009D555C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFC7296D1B697C29009D555C /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		DF8199DE1B62BFE9002A7885 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DFB8F1171B5EE02C003C6E2B /* Annex-get.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Annex-get.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB8F11A1B5EE02C003C6E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DFB8F11C1B5EE02C003C6E2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFB8F11F1B5EE02C003C6E2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DFB8F1211B5EE02C003C6E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFB8F1261B5EE02C003C6E2B /* Annex-getTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Annex-getTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +47,7 @@
 		DFB8F1311B5EE02C003C6E2B /* Annex-getUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Annex-getUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB8F1351B5EE02C003C6E2B /* Annex_getUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annex_getUITests.swift; sourceTree = "<group>"; };
 		DFB8F1371B5EE02C003C6E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFC7296D1B697C29009D555C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				DFB8F11A1B5EE02C003C6E2B /* AppDelegate.swift */,
-				DFB8F11C1B5EE02C003C6E2B /* Assets.xcassets */,
 				DFB8F11E1B5EE02C003C6E2B /* MainMenu.xib */,
 				DFB8F1211B5EE02C003C6E2B /* Info.plist */,
 				DF8199DE1B62BFE9002A7885 /* Model.swift */,
+				DFC7296D1B697C29009D555C /* Media.xcassets */,
 			);
 			path = "Annex-get";
 			sourceTree = "<group>";
@@ -231,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF150BFD1B625E90005EFEB4 /* LICENCE in Resources */,
-				DFB8F11D1B5EE02C003C6E2B /* Assets.xcassets in Resources */,
+				DFC7296E1B697C29009D555C /* Media.xcassets in Resources */,
 				DFB8F1201B5EE02C003C6E2B /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
