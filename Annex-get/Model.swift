@@ -18,6 +18,10 @@
 
 import Foundation
 
+enum RepositoryError: ErrorType {
+    case NotASymlink
+}
+
 class Repository {
     let fileManager = NSFileManager.defaultManager()
     var repoRoot: NSURL
@@ -86,6 +90,33 @@ class Repository {
                 return false
             }
         } catch {
+            return false
+        }
+    }
+    
+    /**
+        Check if symbolic link has a existing target.
+
+        The function expects the NSURL to be a symlink and and will raise otherwise.
+
+        :param: path A NSURL instance to check.
+
+        :returns: A boolen that is true if the link target exist and false if the link is broken.
+    */
+    func symlinkTargetExist(url: NSURL?) throws -> Bool {
+        guard let unwrappedURL = url else {
+            return false
+        }
+        guard let path = unwrappedURL.path else {
+            return false
+        }
+        let attributes = try self.fileManager.attributesOfItemAtPath(path)
+        if attributes["NSFileType"] as! String != NSFileTypeSymbolicLink {
+            throw RepositoryError.NotASymlink
+        }
+        if fileManager.fileExistsAtPath(path) {
+            return true
+        } else {
             return false
         }
     }

@@ -147,4 +147,12 @@ class ModelTests: XCTestCase {
         let nonexist = NSURL(string: "blahonga", relativeToURL: self.tempRepo)
         XCTAssertFalse(self.repo.urlIsSymlink(nonexist))
     }
+
+    func testSymlinkTargetExist_brokenSymlink() {
+        XCTAssertFalse(try! self.repo.symlinkTargetExist(self.setUpSymlink(false).symbolicLink))
+    }
+
+    func testSymlinkTargetExist_symlink() {
+        XCTAssertTrue(try! self.repo.symlinkTargetExist(self.setUpSymlink(true).symbolicLink))
+    }
 }
