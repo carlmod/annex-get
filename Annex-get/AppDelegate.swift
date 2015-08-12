@@ -31,11 +31,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
     @IBOutlet weak var dropAllButton: NSToolbarItem!
 
     let greencircle = NSImage(named: "greencircle")
+    let redcircle = NSImage(named: "redcircle")
 
     let repo = Repository()
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         greencircle?.size = NSSize(width: 16, height: 16)
+        redcircle?.size = NSSize(width: 16, height: 16)
         annexBrowser.delegate = self
     }
 
@@ -49,7 +51,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
         let parentPath = self.repo.repoRoot.URLByAppendingPathComponent(browserPath)
         let fullPath = self.repo.listFiles(parentPath)[row]
         if self.repo.urlIsSymlink(fullPath) {
-            browserCell.image = self.greencircle
+            do {
+                if try self.repo.symlinkTargetExist(fullPath) {
+                    browserCell.image = self.greencircle
+                } else {
+                    browserCell.image = self.redcircle
+                }
+            } catch {}
         }
         browserCell.stringValue = fullPath.lastPathComponent!
         browserCell.leaf = !self.repo.urlIsDirectory(fullPath)
