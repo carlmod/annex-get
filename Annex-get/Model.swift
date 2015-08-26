@@ -121,3 +121,40 @@ class Repository {
         }
     }
 }
+
+class AnnexCmd {
+    var cwd: String
+
+    init(repoRoot: NSURL) {
+        if let cwd = repoRoot.path {
+            self.cwd = cwd
+        } else {
+            self.cwd = "/"
+        }
+    }
+
+    /**
+        Perform the git annex get command at the file located at the path of NSURL.
+    */
+    func get(url: NSURL) {
+        guard (url.path != nil) else {
+            return
+        }
+        let task = NSTask()
+        task.currentDirectoryPath = self.cwd
+        task.arguments = ["annex", "get", url.path!]
+        task.launchPath = "/usr/local/bin/git"
+        task.environment = ["PATH":"/usr/local/bin"]
+        print(task.environment)
+        let out_pipe = NSPipe()
+        let err_pipe = NSPipe()
+        task.standardOutput = out_pipe
+        task.standardError = err_pipe
+        task.launch()
+        print("Getting")
+        task.waitUntilExit()
+        print(NSString(data: out_pipe.fileHandleForReading.readDataToEndOfFile(), encoding: NSUTF8StringEncoding) )
+        //print(err_pipe.fileHandleForReading)
+        
+    }
+}

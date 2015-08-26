@@ -34,7 +34,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
     let redcircle = NSImage(named: "redcircle")
 
     let repo = Repository()
+    var annex: AnnexCmd
 
+    override init() {
+        self.annex = AnnexCmd(repoRoot: repo.repoRoot)
+        super.init()
+    }
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         greencircle?.size = NSSize(width: 16, height: 16)
         redcircle?.size = NSSize(width: 16, height: 16)
@@ -75,6 +81,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSBrowserDelegate {
     }
 
     @IBAction func getAction(sender: AnyObject) {
+        let removedInitialSlash = annexBrowser.path().substringFromIndex(advance(annexBrowser.path().startIndex,1))
+        let urlEncoded = removedInitialSlash.stringByAddingPercentEncodingWithAllowedCharacters(.URLPathAllowedCharacterSet())!
+        let url = NSURL(string: urlEncoded, relativeToURL: self.repo.repoRoot)!
+        annex.get(url)
     }
 
     @IBAction func dropAction(sender: AnyObject) {
