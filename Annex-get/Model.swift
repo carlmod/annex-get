@@ -144,7 +144,7 @@ class AnnexCmd {
         task.currentDirectoryPath = self.cwd
         task.arguments = ["annex", "get", url.path!]
         task.launchPath = "/usr/local/bin/git"
-        task.environment = ["PATH":"/usr/local/bin"]
+        task.environment = ["PATH":"/usr/local/bin:/usr/bin"]
         print(task.environment)
         let out_pipe = NSPipe()
         let err_pipe = NSPipe()
